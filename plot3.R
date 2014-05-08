@@ -1,0 +1,8 @@
+png("plot3.png",width=480,height=480)
+a<- read.table(file = "household_power_consumption.txt",sep = ";", skip = 66637,nrows = 2880)
+wDays <- strptime(paste(a$V1, a$V2), format='%d/%m/%Y %H:%M:%S')
+plot(wDays, a$V7,type="l", xlab="", ylab="Energy sub metering")
+lines(wDays,a$V8, col="red")
+lines(wDays,a$V9, col="blue")
+legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=c(1,1,1), col=c("black","red","blue"),seg.len=1)
+dev.off()
