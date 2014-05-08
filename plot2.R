@@ -1,0 +1,5 @@
+png("plot2.png",width=480,height=480)
+a<- read.table(file = "household_power_consumption.txt",sep = ";", skip = 66637,nrows = 2880)
+wDays <- strptime(paste(a$V1, a$V2), format='%d/%m/%Y %H:%M:%S')
+plot(wDays, a$V3, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+dev.off()
